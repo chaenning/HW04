@@ -127,10 +127,10 @@ public:
     void returnBook(const string& title) {
         if (stock.find(title) != stock.end()) {
             stock[title]++;
-            cout << "[" << title << "] 책을 반납했습니다. 현재 재고: " << stock[title] << endl;
+            cout << "'" << title << "' 책을 반납했습니다. 현재 재고: " << stock[title] << endl;
         }
         else {
-            cout << "[" << title << "] 책은 존재하지 않아 반납할 수 없습니다." << endl;
+            cout << "'" << title << "' 책은 존재하지 않아 반납할 수 없습니다." << endl;
         }
     }
 
@@ -152,6 +152,7 @@ int main() {
     BookManager manager;
 
     BorrowManager borrowManager;
+
 
 
     // 도서관 관리 프로그램의 기본 메뉴를 반복적으로 출력하여 사용자 입력을 처리합니다.
@@ -210,8 +211,6 @@ int main() {
             manager.searchByAuthor(author);
         }
         else if (choice == 5) {
-            // 5 번 선택: 책의 이름으로 대여
-            //책의 이름으로 대여 여부를 검색하고 대여가 아닌 경우 대여할 수 있어야 합니다.            
             string title;
             cin.ignore();
             cout << "대여할 책 제목: ";
@@ -219,8 +218,6 @@ int main() {
             borrowManager.borrowBookByTitle(manager.getBooks(), title);
         }
         else if (choice == 6) {
-            // 6 번 선택: 작가의 이름으로 대여
-            //작가의 이름으로 대여 여부를 검색하고 대여가 아닌 경우 대여할 수 있어야 합니다.    
             string author;
             cin.ignore();
             cout << "대여할 작가 이름: ";
@@ -228,8 +225,6 @@ int main() {
             borrowManager.borrowBookByAuthor(manager.getBooks(), author);
         }
         else if (choice == 7) {
-            // 7 번 선택: 책 반납
-            //책을 반납할 수 있어야 합니다. 
             string title;
             cin.ignore();
             cout << "반납할 책 제목: ";
@@ -237,8 +232,6 @@ int main() {
             borrowManager.returnBook(title);
         }
         else if (choice == 8) {
-            // 8 번 선택: 재고 확인
-            // 현재 등록된 책의 재고를 확인 합니다.
             borrowManager.dispalyStock();
         }
         else if (choice == 9) {
