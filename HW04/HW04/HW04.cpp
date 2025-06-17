@@ -172,12 +172,13 @@ int main() {
         int choice; // 사용자의 메뉴 선택을 저장
         cin >> choice;
 
+        cin.ignore(); // 이전 입력의 잔여 버퍼를 제거
+
         if (choice == 1) {
             // 1번 선택: 책 추가
             // 사용자로부터 책 제목과 저자명을 입력받아 BookManager에 추가합니다.
             string title, author;
             cout << "책 제목: ";
-            cin.ignore(); // 이전 입력의 잔여 버퍼를 제거
             getline(cin, title); // 제목 입력 (공백 포함)
             cout << "책 저자: ";
             getline(cin, author); // 저자명 입력 (공백 포함)
@@ -194,7 +195,6 @@ int main() {
             // 현재 책 목록에 있는 책 제목을 검색합니다.
             cout << "검색 할 책 제목: ";
             string title;
-            cin.ignore(); // 이전 입력의 잔여 버퍼를 제거
             getline(cin, title);
 
             manager.searchByTitle(title);
@@ -204,7 +204,6 @@ int main() {
             // 현재 책 목록에 있는 책 작가를 검색합니다.
             cout << "검색 할 작가: ";
             string author;
-            cin.ignore(); // 이전 입력의 잔여 버퍼를 제거
             getline(cin, author);
             
             manager.searchByAuthor(author);
